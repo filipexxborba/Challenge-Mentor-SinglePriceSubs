@@ -1,0 +1,20 @@
+.about{
+    grid-area: about;
+    background: $cyan;
+    grid-column: 1fr;
+    padding: rem(32);
+    border-bottom-right-radius: rem(15);
+    @include device(phone){
+        border-bottom-left-radius: rem(15);
+    }
+    h3{
+        color: white;
+        font-weight: 700;
+        margin-bottom: rem(16);
+    }
+
+    &__list{
+        font-size: em(14);
+        color: rgba($color: #fff, $alpha: .8);
+    }
+}

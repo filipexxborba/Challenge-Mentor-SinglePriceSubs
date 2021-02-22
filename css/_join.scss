@@ -1,0 +1,26 @@
+.join{
+    grid-area: join;
+    padding: rem(32);
+    grid-column: 2fr;
+    h1{
+        color: $cyan;
+        font-size: em(32);
+        font-weight: 700;
+        margin-bottom: rem(16);
+        @include device(phone){
+            font-size: em(24);
+        }
+    }
+    span{
+        display: block;
+        color: $bright-Yellow;
+        font-weight: 700;
+        margin-bottom: rem(8);
+    }
+    p{
+        color: $grayish-Blue;
+        max-width: 60ch;
+        line-height: 1.5em;
+        margin-bottom: rem(32);
+    }
+}

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+@function rem($size, $context: 16){
+    @return $size / $context + rem;
+}
+
+@function em($size, $context: 16){
+    @return $size / $context + em;
+}
+
+$l-device: 1200px;
+$m-device: 760px;
+$s-device: 480px;
+
+// Mixin de media-querie
+
+@mixin device($size){
+    @if $size == desktop{
+        @media screen and (min-width: #{$l-device}){
+            @content;
+        }
+    }
+    @else if $size == tablet{
+        @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1}){
+            @content;
+        }
+    }
+
+    @else if $size == phone{
+        @media screen and (max-width: #{$m-device - 1}){
+            @content;
+        }
+    }
+}
+
+// Colors
+
+$cyan: hsl(179, 62%, 43%);
+$bright-Yellow: hsl(71, 73%, 54%);
+
+$light-Gray: hsl(204, 43%, 93%);
+$grayish-Blue: hsl(218, 22%, 67%);
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+    font-size: em(16);
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: currentColor;
+}
+
+body{
+    background: $light-Gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container{
+    display: grid;
+    grid-template-areas: "join join"
+                         "subs about";
+    background: white;
+    border-radius: rem(15);
+    box-shadow: 4px 4px 16px rgba($color: #949494, $alpha: .2);
+
+    @include device(phone){
+        grid-template-areas: "join"
+                             "subs"
+                             "about";
+        margin: rem(0) rem(32);
+    }
+}
+
+.button{
+    display: block;
+    background: $bright-Yellow;
+    align-self: center;
+    padding: rem(16) rem(90);
+    color: white;
+    border-radius: rem(4);
+    box-shadow: 4px 4px 16px rgba($color: #444444, $alpha: .5);
+    transition: .3s all ease-in;
+
+    &:hover{
+        background: darken($bright-Yellow, 5%);
+    }
+}
